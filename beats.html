@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silent Wavez | Beats</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header>
+    <h1>Silent Wavez Beats</h1>
+    <a href="index.html" class="btn">Back to Home</a>
+  </header>
+
+  <section class="beats-section">
+    <h2>My Beats & Freestyles</h2>
+    <div class="beats-container" id="beatsContainer"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2026 Silent Wavez. Licensed under <a href="LICENSE" target="_blank">MIT License</a>.</p>
+  </footer>
+
+  <script>
+    // Load beats from JSON automatically
+    fetch('beats.json')
+      .then(response => response.json())
+      .then(beats => {
+        const container = document.getElementById('beatsContainer');
+        beats.forEach(beat => {
+          const card = document.createElement('div');
+          card.className = 'beat-card';
+
+          // Beat title
+          const title = document.createElement('h3');
+          title.textContent = beat.filename.replace('.mp3','');
+          card.appendChild(title);
+
+          // Audio player
+          const player = document.createElement('audio');
+          player.controls = true;
+          player.src = `assets/beats/${beat.filename}`;
+          card.appendChild(player);
+
+          // Download button
+          const downloadBtn = document.createElement('a');
+          downloadBtn.href = `assets/beats/${beat.filename}`;
+          downloadBtn.download = beat.filename;
+          downloadBtn.textContent = "Download";
+          downloadBtn.className = "download-btn";
+          card.appendChild(downloadBtn);
+
+          container.appendChild(card);
+        });
+      })
+      .catch(error => console.error("Error loading beats:", error));
+  </script>
+
+</body>
+</html>
