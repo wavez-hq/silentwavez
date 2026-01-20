@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <!-- Header Section -->
+  <!-- Header -->
   <header>
     <h1>Silent Wavez</h1>
     <p>Producer • Artist • Beatmaker</p>
@@ -20,18 +20,20 @@
   <section class="about">
     <h2>About Me</h2>
     <p>Creating Drill, Trap, Afrobeat, Afro Fusion, and Dubstep. Explore my beats and freestyles below.</p>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="contact">
+    <h2>Contact Me</h2>
+    <p>
+      Email & WhatsApp: 
+      <a href="mailto:iremidesegun166@gmail.com">iremidesegun166@gmail.com</a> | 
+      <a href="https://wa.me/2347035930768" target="_blank">WhatsApp</a>
+    </p>
     <div class="socials">
       <a href="https://instagram.com/oderindeisaiah" target="_blank">Instagram</a>
       <a href="https://x.com/isaiaholu18" target="_blank">X</a>
     </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta">
-    <h2>Get in Touch</h2>
-    <p>Email: <a href="mailto:iremidesegun166@gmail.com">iremidesegun166@gmail.com</a></p>
-    <p>Phone / WhatsApp: <a href="tel:+2347035930768">07035930768</a></p>
-    <a href="contact.html" class="btn">Contact Me</a>
   </section>
 
   <!-- Footer -->
@@ -39,5 +41,25 @@
     <p>&copy; 2026 Silent Wavez. Licensed under <a href="LICENSE" target="_blank">MIT License</a>.</p>
   </footer>
 
+  <!-- JS -->
+  <script>
+    // Smooth scroll to About section
+    const btn = document.querySelector('.btn');
+    btn.addEventListener('click', e => {
+      e.preventDefault();
+      window.scrollTo({
+        top: document.querySelector('.about').offsetTop,
+        behavior: 'smooth'
+      });
+    });
+
+    // Social hover effect
+    const socials = document.querySelectorAll('.socials a');
+    socials.forEach(link => {
+      link.addEventListener('mouseover', () => link.style.transform = "scale(1.1)");
+      link.addEventListener('mouseout', () => link.style.transform = "scale(1)");
+    });
+  </script>
+
 </body>
-      </html>
+</html>
