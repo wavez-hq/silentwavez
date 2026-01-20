@@ -1,1 +1,0 @@
-console.log("Silent Wavez portfolio loaded 🔥");
