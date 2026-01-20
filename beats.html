@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Silent Wavez | Beats</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <h1>Silent Wavez Beats</h1>
+    <a href="index.html" class="btn">Back to Home</a>
+  </header>
+
+  <!-- BEATS SECTION -->
+  <section class="beats-section">
+    <h2>My Beats & Freestyles</h2>
+    <div class="beats-container" id="beatsContainer"></div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Silent Wavez. Licensed under <a href="LICENSE" target="_blank">MIT License</a>.</p>
+  </footer>
+
+  <!-- JAVASCRIPT -->
+  <script>
+    const beats = [
+      {filename: "Beat1.mp3", cover: "Beat1.jpg"},
+      {filename: "Beat2.mp3", cover: "Beat2.jpg"},
+      {filename: "Beat3.mp3", cover: "Beat3.jpg"},
+      {filename: "Beat4.mp3", cover: "Beat4.jpg"},
+      {filename: "Beat5.mp3", cover: "Beat5.jpg"},
+      {filename: "Beat6.mp3", cover: "Beat6.jpg"},
+      {filename: "Beat7.mp3", cover: "Beat7.jpg"},
+      {filename: "Beat8.mp3", cover: "Beat8.jpg"},
+      {filename: "Beat9.mp3", cover: "Beat9.jpg"},
+      {filename: "Beat10.mp3", cover: "Beat10.jpg"},
+      {filename: "Beat11.mp3", cover: "Beat11.jpg"},
+      {filename: "Beat12.mp3", cover: "Beat12.jpg"},
+      {filename: "Beat13.mp3", cover: "Beat13.jpg"},
+      {filename: "Beat14.mp3", cover: "Beat14.jpg"},
+      {filename: "Beat15.mp3", cover: "Beat15.jpg"},
+      {filename: "Beat16.mp3", cover: "Beat16.jpg"},
+      {filename: "Beat17.mp3", cover: "Beat17.jpg"},
+      {filename: "Beat18.mp3", cover: "Beat18.jpg"},
+      {filename: "Beat19.mp3", cover: "Beat19.jpg"},
+      {filename: "Beat20.mp3", cover: "Beat20.jpg"},
+      {filename: "Beat21.mp3", cover: "Beat21.jpg"},
+      {filename: "Beat22.mp3", cover: "Beat22.jpg"},
+      {filename: "Beat23.mp3", cover: "Beat23.jpg"},
+      {filename: "Beat24.mp3", cover: "Beat24.jpg"},
+      {filename: "Beat25.mp3", cover: "Beat25.jpg"},
+      {filename: "Beat26.mp3", cover: "Beat26.jpg"},
+      {filename: "Beat27.mp3", cover: "Beat27.jpg"},
+      {filename: "Beat28.mp3", cover: "Beat28.jpg"},
+      {filename: "Beat29.mp3", cover: "Beat29.jpg"},
+      {filename: "Beat30.mp3", cover: "Beat30.jpg"},
+      {filename: "Beat31.mp3", cover: "Beat31.jpg"}
+    ];
+
+    const container = document.getElementById('beatsContainer');
+
+    beats.forEach(beat => {
+      const card = document.createElement('div');
+      card.className = 'beat-card';
+
+      const img = document.createElement('img');
+      img.src = `assets/beats/${beat.cover}`;
+      img.alt = beat.filename.replace('.mp3','');
+      img.className = 'beat-cover';
+      card.appendChild(img);
+
+      const title = document.createElement('h3');
+      title.textContent = beat.filename.replace('.mp3','');
+      card.appendChild(title);
+
+      const player = document.createElement('audio');
+      player.controls = true;
+      player.src = `assets/beats/${beat.filename}`;
+      card.appendChild(player);
+
+      const downloadBtn = document.createElement('a');
+      downloadBtn.href = `assets/beats/${beat.filename}`;
+      downloadBtn.download = beat.filename;
+      downloadBtn.textContent = "Download";
+      downloadBtn.className = "download-btn";
+      card.appendChild(downloadBtn);
+
+      container.appendChild(card);
+    });
+  </script>
+
+</body>
+</html>
